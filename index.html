@@ -29,11 +29,85 @@
 					<img src="imgs/web-workers.png" alt="Image">
 				</section>
 				<section>
-					<p>Что такое Web Workers и для чего нужен?</p>
-					<span>ваываываываыва</span>
+					<p>Начнем с начала ...</p>
+					<p>Язык javascript является однопоточным.</p>
 				</section>
 				<section>
-					Язык javascript является однопоточным языком программирования.
+					<p>Это не лучшим образом сказывается, в частности, на работе UI.</p>
+				</section>
+				<section>
+					<p>Выходом является асинхронное выполнение программы. Например с помощью функции:</p>
+					<pre><code data-trim>
+						setTimeout(callback, milliseconds);
+					</code></pre>
+				</section>
+				<section>
+					<p style = color blue>setTimeout(callback, milliseconds)</p>
+					<p>Функция позволяет планировать выполнение событий , которые должны произойти 
+					позже момента обращения к этой функции</p>
+				</section>
+				<section>
+					<img src="imgs/event-loop.gif" alt="Animation" width = "650" height="450">
+					<pre><code data-trim data-line-numbers>
+					console.log('Hi');
+					setTimeout(function cb1() { 
+					  console.log('cb1');
+					}, 5000);
+					console.log('Bye');
+					</code></pre>
+					<section></section>
+				</section>
+				<section>
+					<p>Стандарт HTML5 превнёс возможность использовать WEB WORKER.</p>
+                </section>
+                <section>
+                	<p>Веб-воркеры не являются частью JavaScript.</p>
+                </section>
+				<section>
+					<p>Веб-воркеры — это потоки, принадлежащие браузеру, которые можно использовать для выполнения JS-кода 
+					без блокировки цикла событий.</p>
+					
+				</section>
+				<section>
+					<p>Создание веб-воркера:</p>
+					<pre><code data-drim>var worker = new Worker('task.js');</code></pre>
+					<p>Запуск созданного воркера:</p>
+					<pre><code data-drim>worker.postMessage();</code></pre>
+					<p>Остановка воркера со страницы сайта:</p>
+					<pre><code data-drim> worker.terminate()</code></pre>
+					<p>Остановка изнутри:</p>
+					<pre><code data-drim> self.close()</code></pre>
+				</section>
+					
+				<section>
+					<p>Возможности, доступные веб-воркерам:</p>
+					<ul>
+						<li>Объект navigator</li>
+						<li>Объект location (только для чтения)</li>
+						<li>XMLHttpRequest</li>
+						<li>setTimeout()/clearTimeout() и setInterval()/clearInterval()</li>
+						<li>Кеш приложения</li>
+						<li>Импорт внешних скриптов с использованием importScripts()</li>
+						<li>Создание других веб-воркеров</li>
+					</ul>
+				</section>
+				<section>
+					<p>Для веб-воркера не доступны:</p>
+					<ul>
+						<li>DOM структура основной страницы</li>
+						<li>Объект window</li>
+						<li>Объект document</li>
+						<li>Объект parent</li>
+					</ul>
+				</section>
+				<section>
+					<p>
+						Таким образом веб-воркер ориентирован на сложные вычисления,
+						а обработка UI происходит отдельно.
+					</p>
+				</section>
+				<section>
+					<a href="http://afshinm.github.io/50k/">Сравнительный пример</a>
 				</section>
 			</div>
 		</div>
