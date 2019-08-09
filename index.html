@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/league.css">
+		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -42,9 +42,8 @@
 					</code></pre>
 				</section>
 				<section>
-					<p>setTimeout(callback, milliseconds)</p>
-					<p>Функция позволяет планировать выполнение событий , которые должны произойти 
-					позже момента обращения к этой функции</p>
+					<p style="color: #71bda1">setTimeout(callback, milliseconds)</p>
+					<p>Функция позволяет планировать выполнение событий.</p>
 				</section>
 				<section>
 					<img src="imgs/event-loop.gif" alt="Animation" width = "650" height="450">
@@ -64,7 +63,7 @@
                 	<p>Веб-воркеры не являются частью JavaScript.</p>
                 </section>
 				<section>
-					<p>Веб-воркеры — это потоки, принадлежащие браузеру, которые можно использовать для выполнения JS-кода 
+					<p>Веб-воркеры — это потоки, принадлежащие браузеру и выполняющие JS-код 
 					без блокировки цикла событий.</p>
 					
 				</section>
@@ -73,26 +72,29 @@
 					<pre><code data-drim>var worker = new Worker('task.js');</code></pre>
 					<p>Запуск созданного воркера:</p>
 					<pre><code data-drim>worker.postMessage();</code></pre>
-					<p>Остановка воркера со страницы сайта:</p>
+					<p>Остановка воркера с основного скрипта:</p>
 					<pre><code data-drim> worker.terminate()</code></pre>
 					<p>Остановка изнутри:</p>
 					<pre><code data-drim> self.close()</code></pre>
 				</section>
-					
 				<section>
-					<p>Возможности, доступные веб-воркерам:</p>
+					<p style="color: #71bda1">worker.postMessage(), self.postMessage()</p>
+					<p>Используются также для обмена сообщениями.</p>
+				</section>
+				<section>
+					<p style="color: #18ab3d">Возможности доступные веб-воркеру:</p>
 					<ul>
 						<li>Объект navigator</li>
 						<li>Объект location (только для чтения)</li>
 						<li>XMLHttpRequest</li>
-						<li>setTimeout()/clearTimeout()</li>
-						<li>setInterval()/clearInterval()</li>
+						<li>setTimeout() / clearTimeout()</li>
+						<li>setInterval() / clearInterval()</li>
 						<li>Кеш приложения</li>
 						<li>Создание других веб-воркеров</li>
 					</ul>
 				</section>
 				<section>
-					<p>Для веб-воркера не доступны:</p>
+					<p style="color: #e64009">Для веб-воркера не доступны:</p>
 					<ul>
 						<li>DOM структура</li>
 						<li>Объект window</li>
